@@ -1,0 +1,68 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Resume Data (structured for AI prompts)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+personal:
+  name: "John Doe"
+  location: "San Francisco, CA"
+  nationality: "US Citizen"
+  phone: "+1-555-000-0000"
+  email: "john.doe@example.com"
+  linkedin: "https://www.linkedin.com/in/johndoe/"
+  github: "https://github.com/johndoe"
+  years_of_experience: 5
+
+summary: |
+  Full Stack Software Engineer with 5+ years of experience building
+  scalable web applications and distributed systems. Proficient in
+  Python, TypeScript, and cloud infrastructure. Passionate about
+  automation, AI-driven tooling, and clean architecture.
+
+skills:
+  languages:
+    - Python 3.14
+    - TypeScript 5
+    - Rust
+    - SQL
+  frameworks:
+    - FastAPI
+    - React / Next.js
+    - SQLAlchemy
+  cloud_and_devops:
+    - Docker
+    - PostgreSQL
+    - CI/CD Pipelines
+  ai_and_automation:
+    - LLM Integration
+    - Playwright / Browser Automation
+    - Model Context Protocol (MCP)
+
+experience:
+  - title: "Senior Software Engineer"
+    company: "Tech Company Inc."
+    period: "2022 - Present"
+    highlights:
+      - "Built microservices architecture handling 10k req/s with FastAPI"
+      - "Reduced deployment time by 70% with automated CI/CD pipelines"
+      - "Designed real-time data processing pipeline using async Python"
+
+  - title: "Software Engineer"
+    company: "Startup Labs"
+    period: "2020 - 2022"
+    highlights:
+      - "Developed full-stack web application with React and FastAPI"
+      - "Implemented automated testing achieving 95% code coverage"
+      - "Optimized database queries reducing response time by 60%"
+
+# Default answers for common Easy Apply questions
+default_answers:
+  phone: "+1-555-000-0000"
+  city: "San Francisco"
+  years_experience: "5"
+  work_authorization: "Yes"
+  sponsorship_required: "No"
+  willing_to_relocate: "Yes"
+  remote_work: "Yes"
+  salary_expectation: ""  # Leave empty to skip
+  start_date: "Immediately"
+  english_proficiency: "Native"

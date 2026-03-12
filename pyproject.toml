@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=75.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["linkedin_bot*"]
+
+[project]
+name = "linkedin-auto-apply"
+version = "2.0.0"
+description = "LinkedIn Easy Apply bot with DeepSeek AI integration"
+requires-python = ">=3.14"
+dependencies = [
+    "playwright>=1.49.0",
+    "openai>=1.58.0",
+    "python-dotenv>=1.0.1",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.7.0",
+    "pyyaml>=6.0.2",
+    "structlog>=25.1.0",
+    "httpx>=0.28.0",
+    "rich>=13.9.0",
+    "sqlalchemy[asyncio]>=2.0.30",
+    "aiosqlite>=0.20.0"
+]
+
+[project.scripts]
+linkedin-apply = "linkedin_bot.main:run"
+
+[tool.ruff]
+target-version = "py314"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "A", "SIM"]
+
+[tool.mypy]
+python_version = "3.14"
+strict = true
+warn_return_any = true
+
+[[tool.mypy.overrides]]
+module = [
+    "pydantic.*",
+    "pydantic_settings.*",
+    "openai.*",
+    "sqlalchemy.*",
+    "aiosqlite.*",
+    "structlog.*",
+    "rich.*",
+    "playwright.*",
+]
+ignore_missing_imports = true

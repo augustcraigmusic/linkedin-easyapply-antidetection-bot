@@ -1,0 +1,33 @@
+# ─── Environment & Credentials ───
+.env
+*.session
+
+# ─── Personal Data (NEVER commit) ───
+resume.yaml
+resume.pdf
+*.pdf
+*_CV*
+
+# ─── Python ───
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# ─── Runtime Data ───
+cookies/
+logs/
+applications_log.csv
+applications_log.json
+
+# ─── IDE ───
+.idea/
+.vscode/
+*.swp
+*.swo

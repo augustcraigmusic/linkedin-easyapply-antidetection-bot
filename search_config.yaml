@@ -1,0 +1,71 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Job Search Configuration (AI & SRE Focus 2026)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Keywords to search — targeted for your advanced profile
+# Focus: MCP creation, AI optimization, rapid deployments, rust/python agents
+keywords:
+  - "AI Agent Developer"
+  - "MCP Developer"
+  - "LLM Tools Engineer"
+  - "AI Infrastructure Engineer"
+  - "MLOps Engineer"
+  - "Automation Architect"
+  - "Rust Developer"
+  - "Python AI Engineer"
+  - "Deployment Automation Engineer"
+  - "Systems Optimization Engineer"
+  - "Distributed Systems Engineer"
+  - "Generative AI Developer"
+  - "AI Backend Engineer"
+  - "Site Reliability Engineer"
+  - "FastAPI Microservices Developer"
+
+# Filter: Remote only
+remote_only: true
+
+# Filter: Experience level
+# 1=Internship, 2=Entry, 3=Associate, 4=Mid-Senior, 5=Director, 6=Executive
+experience_levels:
+  - 3  # Associate
+  - 4  # Mid-Senior level
+
+# Filter: Date posted
+# 1=Past 24h, 2=Past week, 3=Past month
+date_posted: 2  # Past week
+
+# Locations to search (leave empty for worldwide)
+locations:
+  - ""          # Worldwide (no location filter)
+  - "United States"
+  - "Canada"
+  - "Europe"
+
+# Keywords to SKIP if found in job title (case-insensitive)
+# Updated to exclude legacy tech and management roles, allowing Senior/Architect due to complex tech stack
+blacklist_titles:
+  - "manager"
+  - "director"
+  - "vp"
+  - "head of"
+  - "chief"
+  - "intern"
+  - "trainee"
+  - "java "
+  - ".net"
+  - "ruby"
+  - "php"
+  - "salesforce"
+  - "sap"
+  - "oracle"
+  - "wordpress"
+  - "frontend exclusive"
+  - "seo"
+  - "marketing"
+
+# Companies to SKIP (empty means don't skip any)
+blacklist_companies: []
+
+# Minimum match score (0-100) — below this, skip the job
+# DeepSeek calculates how well your resume matches the job description
+min_match_score: 45
