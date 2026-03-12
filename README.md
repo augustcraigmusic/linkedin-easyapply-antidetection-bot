@@ -1,138 +1,164 @@
-# LinkedIn Auto-Apply Bot v2.0
+# LinkedIn EasyApply Anti-Detection Bot v2.0
 
-> 🤖 Bot de automatización de LinkedIn Easy Apply con IA DeepSeek, browser stealth y resiliencia industrial
+> 🔬 Automated LinkedIn Easy Apply bot with advanced anti-detection bypass, reverse-engineered browser stealth, and AI-powered form filling — **for ethical hacking education and security research only**
 
 [![Python 3.14+](https://img.shields.io/badge/python-3.14+-blue.svg)](https://python.org)
 [![mypy strict](https://img.shields.io/badge/mypy-strict-green.svg)](https://mypy-lang.org)
 [![ruff](https://img.shields.io/badge/linting-ruff-orange.svg)](https://docs.astral.sh/ruff)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](LICENSE)
 
-## ✨ Características
+## ⚠️ Disclaimer
 
-### Core
-- **Playwright browser automation** con anti-detección avanzada (stealth scripts, delays humanos)
-- **DeepSeek AI integration** — responde preguntas de formulario, calcula match scores, genera cover letters
-- **Smart filtering** — blacklists por título/empresa, umbral mínimo de match score
-- **Multi-keyword search** — itera por múltiples palabras clave y ubicaciones
-- **Session persistence** — cookies guardadas para evitar re-login
+This project is strictly for **educational purposes** in the fields of ethical hacking, reverse engineering, and web automation security research. Using bots on LinkedIn violates their Terms of Service and may result in account restrictions or suspension. Use at your own risk. Consider using a secondary account for testing.
 
-### Resiliencia
-- **Circuit Breaker** — protege contra API failures con patrón CLOSED → OPEN → HALF_OPEN
-- **Exponential Backoff + Jitter** — reintentos inteligentes para errores transitorios
-- **Graceful Degradation** — aborta formularios incompatibles después de `max_steps=10` sin crashear
-- **UI Trap Evasion** — detecta y descarta modales de bloqueo agresivos ("Save/Discard application")
+---
 
-### Anti-Detección
-- Stealth JavaScript externo (`stealth.js`) inyectado al navegador
-- Kernel-level click forcing (`force=True`) para bypass de trampas DOM
-- Delays aleatorios (distribución gaussiana, 3-8 segundos)
-- Velocidad de tipeo humana (30-120ms por carácter)
-- Flag `navigator.webdriver` oculto
-- Plugins y lenguajes de navegador falsos
-- User-agent de Chrome real
-- Cookie persistence (evita logins repetidos)
+## 🔬 Research Focus
 
-### Calidad de Código
-- **mypy --strict** — 0 errores propios en 16 archivos
-- **ruff** — 0 warnings (9 reglas activas: E, F, W, I, N, UP, B, A, SIM)
-- **Complejidad Ciclomática** — ≤7 promedio (radon)
+This project demonstrates practical exploitation of web application anti-bot defenses through:
+
+- **Reverse engineering** of LinkedIn's bot detection mechanisms
+- **Browser fingerprint spoofing** to evade automated detection systems
+- **DOM trap evasion** and modal interception techniques
+- **Stealth JavaScript injection** to bypass runtime integrity checks
+- **AI-driven behavioral mimicry** using LLM-powered form interaction
+
+---
+
+## ✨ Features
+
+### Core Automation
+
+- **Playwright browser automation** with advanced anti-detection (stealth scripts, human-like delays)
+- **DeepSeek AI integration** — answers form questions, calculates match scores, generates contextual responses
+- **Smart filtering** — blacklists by title/company, minimum AI match score threshold
+- **Multi-keyword search** — iterates through multiple keywords and locations with pagination
+- **Session persistence** — cookies saved to avoid repeated authentication
+
+### Resilience Engineering
+
+- **Circuit Breaker** — protects against cascading API failures (CLOSED → OPEN → HALF_OPEN)
+- **Exponential Backoff + Jitter** — intelligent retry for transient errors
+- **Graceful Degradation** — aborts incompatible forms after `max_steps=10` without crashing
+- **UI Trap Evasion** — detects and dismisses blocking modals ("Save/Discard application")
+
+### Anti-Detection & Stealth
+
+- External stealth JavaScript (`stealth.js`) injected into browser context
+- Kernel-level click forcing (`force=True`) to bypass DOM traps
+- Gaussian-distributed random delays (3–8 seconds)
+- Human-like typing speed (30–120ms per character)
+- `navigator.webdriver` flag hidden
+- Fake browser plugins and language headers
+- Real Chrome user-agent spoofing
+- Cookie persistence (avoids repeated login detection)
+
+### Code Quality
+
+- **mypy --strict** — 0 errors across 16 source files
+- **ruff** — 0 warnings (9 rules: E, F, W, I, N, UP, B, A, SIM)
+- **Cyclomatic Complexity** — ≤7 average (radon)
 - **100% type hints** — `ElementHandle`, `AsyncSession`, `SecretStr`
-- **Custom exception hierarchy** — 15 tipos de error específicos
-- **StrEnum** para estados — cero magic strings
+- **Custom exception hierarchy** — 15 specific error types
+- **StrEnum** for state management — zero magic strings
 
 ### Python 3.14 Features
-- **PEP 649** — Deferred annotations nativas (sin `from __future__ import annotations`)
-- **`datetime.UTC`** — Alias moderno en vez de `timezone.utc`
-- **`AsyncGenerator[T]`** — Sin segundo parámetro `None` redundante
-- **`zip(strict=True)`** — Validación de longitud en iteraciones pareadas
-- **Forward refs sin comillas** — Anotaciones de tipo sin strings (`DatabaseManager | None`)
+
+- **PEP 649** — Native deferred annotations (no `from __future__ import annotations`)
+- **`datetime.UTC`** — Modern alias instead of `timezone.utc`
+- **`AsyncGenerator[T]`** — Without redundant second `None` parameter
+- **`zip(strict=True)`** — Length validation on paired iterations
+- **Unquoted forward refs** — Clean type annotations (`DatabaseManager | None`)
 
 ---
 
 ## 🚀 Quick Start
 
-### 1. Clonar e instalar
+### 1. Clone & Install
 
 ```bash
-git clone <repo-url> && cd linkedin-auto-apply
+git clone https://github.com/LeandroPG19/linkedin-easyapply-antidetection-bot.git
+cd linkedin-easyapply-antidetection-bot
 python -m venv .venv && source .venv/bin/activate
 pip install -e .
 playwright install chromium
 ```
 
-### 2. Configurar
+### 2. Configure
 
 ```bash
 cp .env.example .env
 ```
 
-Editar `.env` con tus credenciales:
+Edit `.env` with your credentials:
 
 ```env
 DEEPSEEK_API_KEY=sk-your-key-here
 LINKEDIN_EMAIL=your-email@example.com
 LINKEDIN_PASSWORD=your-password
 RESUME_PATH=./resume.pdf
-DRY_RUN=true  # ¡Empieza con dry run!
+DRY_RUN=true  # Start with dry run!
 ```
 
-Editar `resume.yaml` con tu información real.
-
-Editar `search_config.yaml` con tus preferencias de búsqueda.
-
-### 3. Ejecutar
+Copy and edit the resume template:
 
 ```bash
-# Dry run (no envía aplicaciones)
+cp resume.yaml.example resume.yaml
+```
+
+Edit `search_config.yaml` with your search preferences.
+
+### 3. Run
+
+```bash
+# Dry run (does not submit applications)
 python -m linkedin_bot.main
 
-# Modo live (envía de verdad)
-# Cambia DRY_RUN=false en .env primero
+# Live mode (actually submits)
+# Set DRY_RUN=false in .env first
 python -m linkedin_bot.main
 
-# O usa el CLI registrado
+# Or use the registered CLI
 linkedin-apply
 ```
 
 ---
 
-## 📁 Arquitectura
+## 📁 Architecture
 
-```
-linkedin-auto-apply/
+```text
+linkedin-easyapply-antidetection-bot/
 ├── linkedin_bot/
 │   ├── __init__.py
-│   ├── main.py            # Orquestador principal + CLI entry point
+│   ├── main.py            # Main orchestrator + CLI entry point
 │   ├── config.py           # Pydantic Settings (.env) + SearchConfig (YAML)
 │   ├── logger.py           # structlog (JSON structured logging)
 │   ├── enums.py            # StrEnum: ApplicationStatus, CircuitState
-│   ├── exceptions.py       # Jerarquía de 15 excepciones custom
-│   ├── stealth.js          # Anti-detección JavaScript (inyectado al browser)
+│   ├── exceptions.py       # Hierarchy of 15 custom exceptions
+│   ├── stealth.js          # Anti-detection JavaScript (injected into browser)
 │   ├── ai_engine.py        # DeepSeek AI + Circuit Breaker + Retry
 │   ├── browser.py          # Playwright session + stealth + human delays
-│   ├── linkedin_auth.py    # Login + verificación de sesión
-│   ├── job_search.py       # URL builder + extractor de listings
-│   ├── applicator.py       # Easy Apply form filler + multi-step nav
-│   ├── tracker.py          # Application tracking (dedup por job_id)
+│   ├── linkedin_auth.py    # Login + session verification
+│   ├── job_search.py       # URL builder + listings extractor
+│   ├── applicator.py       # Easy Apply form filler + multi-step navigation
+│   ├── tracker.py          # Application tracking (dedup by job_id)
 │   └── db/
 │       ├── __init__.py
 │       ├── models.py       # SQLAlchemy 2.0 models (ApplicationRecord)
 │       ├── session.py      # DatabaseManager singleton (async SQLite)
 │       └── repository.py   # Repository pattern (UPSERT + stats)
-├── cookies/                # Sesiones guardadas (gitignored)
+├── cookies/                # Saved sessions (gitignored)
 ├── logs/                   # bot_database.db + logs (gitignored)
-├── resume.yaml             # Tu CV estructurado
-├── resume.pdf              # Tu CV en PDF (para upload)
-├── search_config.yaml      # Filtros de búsqueda
-├── .env                    # Credenciales (gitignored)
-├── .env.example            # Template
-├── pyproject.toml          # Dependencias + ruff + mypy config
+├── resume.yaml.example     # Resume template (edit and rename to resume.yaml)
+├── search_config.yaml      # Search filters
+├── .env.example            # Credentials template
+├── pyproject.toml          # Dependencies + ruff + mypy config
 └── README.md
 ```
 
-### Capas
+### Layer Diagram
 
-```
+```text
 ┌─────────────────────────────────────────┐
 │            main.py (Orchestrator)       │
 │  CLI → Config → Auth → Search → Apply  │
@@ -150,28 +176,28 @@ linkedin-auto-apply/
 
 ---
 
-## ⚙️ Configuración
+## ⚙️ Configuration
 
-### `.env` — Credenciales y comportamiento
+### `.env` — Credentials & Behavior
 
-| Variable | Descripción | Default |
-|----------|-------------|---------|
-| `DEEPSEEK_API_KEY` | API key de DeepSeek | **Requerido** |
-| `DEEPSEEK_BASE_URL` | URL base de la API | `https://api.deepseek.com` |
-| `DEEPSEEK_MODEL` | Modelo a usar | `deepseek-chat` |
-| `LINKEDIN_EMAIL` | Email de LinkedIn | **Requerido** |
-| `LINKEDIN_PASSWORD` | Contraseña de LinkedIn | **Requerido** |
-| `RESUME_PATH` | Ruta al PDF del CV | _(opcional)_ |
-| `MAX_APPLICATIONS_PER_SESSION` | Máx. apps por ejecución | `30` |
-| `MAX_PAGES_PER_SEARCH` | Máx. páginas por keyword | `3` |
-| `MIN_DELAY_SECONDS` | Delay mínimo entre acciones | `3.0` |
-| `MAX_DELAY_SECONDS` | Delay máximo entre acciones | `8.0` |
-| `AI_MAX_RETRIES` | Reintentos de AI por llamada | `3` |
-| `AI_RETRY_DELAY` | Delay base entre reintentos | `2.0` |
-| `DRY_RUN` | Modo test (no envía) | `true` |
-| `HEADLESS` | Navegador sin ventana | `false` |
+| Variable | Description | Default |
+| -------- | ----------- | ------- |
+| `DEEPSEEK_API_KEY` | DeepSeek API key | **Required** |
+| `DEEPSEEK_BASE_URL` | API base URL | `https://api.deepseek.com` |
+| `DEEPSEEK_MODEL` | Model to use | `deepseek-chat` |
+| `LINKEDIN_EMAIL` | LinkedIn email | **Required** |
+| `LINKEDIN_PASSWORD` | LinkedIn password | **Required** |
+| `RESUME_PATH` | Path to resume PDF | _(optional)_ |
+| `MAX_APPLICATIONS_PER_SESSION` | Max apps per run | `30` |
+| `MAX_PAGES_PER_SEARCH` | Max pages per keyword | `3` |
+| `MIN_DELAY_SECONDS` | Minimum delay between actions | `3.0` |
+| `MAX_DELAY_SECONDS` | Maximum delay between actions | `8.0` |
+| `AI_MAX_RETRIES` | AI retries per call | `3` |
+| `AI_RETRY_DELAY` | Base delay between retries | `2.0` |
+| `DRY_RUN` | Test mode (no submissions) | `true` |
+| `HEADLESS` | Headless browser | `false` |
 
-### `search_config.yaml` — Búsqueda de empleos
+### `search_config.yaml` — Job Search Filters
 
 ```yaml
 keywords:
@@ -179,85 +205,66 @@ keywords:
   - "Backend Developer"
 remote_only: true
 experience_levels: [3, 4]    # 2=Entry, 3=Associate, 4=Mid-Senior
-date_posted: 2               # 1=24h, 2=semana, 3=mes
-locations: [""]               # Vacío = sin filtro
+date_posted: 2               # 1=24h, 2=week, 3=month
+locations: [""]               # Empty = no filter
 blacklist_titles:
   - "senior"
   - "staff"
 blacklist_companies:
   - "Acme Corp"
-min_match_score: 50           # 0-100 (umbral de IA)
+min_match_score: 50           # 0-100 (AI threshold)
 ```
 
-### `resume.yaml` — Tu perfil
+### `resume.yaml` — Your Profile
 
-```yaml
-personal:
-  name: "Tu Nombre"
-  location: "Ciudad, País"
-  email: "tu@email.com"
-summary: "Resumen profesional..."
-skills:
-  languages: ["Python", "TypeScript"]
-  frameworks: ["FastAPI", "React"]
-experience:
-  - company: "Empresa"
-    role: "Puesto"
-    duration: "2020-2024"
-    highlights:
-      - "Logro cuantificable"
-default_answers:
-  years_of_experience: "5"
-  work_authorization: "yes"
-  salary_expectation: "100000"
-```
+See `resume.yaml.example` for a complete template with all supported fields.
 
 ---
 
-## 🛡️ Patrones de Resiliencia
+## 🛡️ Resilience Patterns
 
-| Patrón | Implementación |
-|--------|---------------|
-| **Circuit Breaker** | 5 fallos consecutivos → OPEN (30s cooldown) → HALF_OPEN (1 test) |
+| Pattern | Implementation |
+| ------- | -------------- |
+| **Circuit Breaker** | 5 consecutive failures → OPEN (30s cooldown) → HALF_OPEN (1 test) |
 | **Exponential Backoff** | `delay = min(base × 2^attempt, max_delay)` + random jitter |
-| **Deduplication** | Tracking por `job_id` (applied + dry_run + skipped) |
-| **Graceful Abort** | Formularios con >10 pasos se abortan sin crash |
-| **Modal Evasion** | Detecta "Discard"/"Save" modals automáticamente |
-| **UPSERT** | Si un `job_id` ya existe en DB, actualiza status |
+| **Deduplication** | Tracking by `job_id` (applied + dry_run + skipped) |
+| **Graceful Abort** | Forms with >10 steps are aborted without crash |
+| **Modal Evasion** | Auto-detects "Discard"/"Save" modals |
+| **UPSERT** | If a `job_id` already exists in DB, updates status |
 
 ---
 
-## 🔧 Desarrollo
+## 🔧 Development
 
-### Verificación de código
+### Code Verification
 
 ```bash
-# Activar virtualenv
+# Activate virtualenv
 source .venv/bin/activate
 
-# Linting (9 reglas)
+# Linting (9 rules)
 ruff check linkedin_bot/
 
 # Type checking (strict mode)
 mypy linkedin_bot/ --strict
 
-# Complejidad ciclomática
+# Cyclomatic complexity
 radon cc linkedin_bot/ -a -nc
 
-# Todo junto
+# All together
 ruff check linkedin_bot/ && mypy linkedin_bot/ --strict && radon cc linkedin_bot/ -a -nc
 ```
 
-### Dependencias de desarrollo
+### Dev Dependencies
 
 ```bash
 pip install mypy types-PyYAML radon ruff
 ```
 
-### Stack
+### Tech Stack
 
-| Componente | Tecnología | Versión |
-|-----------|-----------|---------|
+| Component | Technology | Version |
+| --------- | ---------- | ------- |
 | Runtime | Python | ≥3.14 |
 | Browser | Playwright | ≥1.49.0 |
 | AI | OpenAI SDK (DeepSeek) | ≥1.58.0 |
@@ -271,17 +278,25 @@ pip install mypy types-PyYAML radon ruff
 
 ---
 
-## 💰 Costo
+## 💰 Cost
 
-DeepSeek API es extremadamente económico:
+DeepSeek API is extremely affordable:
 
-- ~50 aplicaciones/día × ~3 llamadas API = 150 llamadas
-- **~$0.03 USD/día**
+- ~50 applications/day × ~3 API calls = 150 calls
+- **~$0.03 USD/day**
 
 ---
 
-## ⚠️ Disclaimer
+## 🔒 Security Notes
 
-Esta herramienta es con **fines educativos**. Usar bots en LinkedIn viola sus
-Términos de Servicio y puede resultar en restricciones o suspensión de cuenta.
-Úsala bajo tu propio riesgo. Considera usar una cuenta secundaria para pruebas.
+- **No credentials are stored in the repository** — all secrets via `.env` (gitignored)
+- **No personal data in the codebase** — resume data via `resume.yaml` (gitignored)
+- **Template files provided** — `.env.example` and `resume.yaml.example` with placeholder data
+- **Anti-traversal protection** — all file paths resolved via `pathlib.resolve()`
+- **SecretStr** — passwords never logged or serialized
+
+---
+
+## 📜 License
+
+MIT — See [LICENSE](LICENSE) for details.
